@@ -1,4 +1,7 @@
-<div ng-controller="forecastWeatherController">
+<!--
+View for Forecast weather
+ -->
+ <div ng-controller="forecastWeatherController">
     <div class="forecastWeather">
         <h2>Forecast Weather</h2>
     
@@ -10,10 +13,12 @@
                 <th>Low temp</th>
                 <th>Description</th>
             </tr>
+            <!-- To loop through weather forecast results and limit to next five days -->
         <tr  ng-repeat="nextDay in forecastWeather | limitTo:quantity" | ng-if="$index > 0" >
         
         <td>{{nextDay.day}}</td>
         <td class="ng-cloak icon">
+            <!-- Depends on the weather code from json,weather icons will change on the viw -->
                     
                     <i ng-if="nextDay.code==0" class="wi wi-thunderstorm"></i>
                     <i ng-if="nextDay.code==1" class="wi wi-day-storm-showers"></i>
@@ -68,6 +73,7 @@
 
 
         </td>
+        <!-- Fahrenheit to celsius conversion -->
         <td>{{((nextDay.high-32)*(5.0/9.0)).toFixed()}}<sup id="degreeforecast">&deg</sup><span id="unit">c</span></td>
         <td>{{((nextDay.low-32)*(5.0/9.0)).toFixed()}}<sup id="degreeforecast">&deg</sup><span id="unit">c</span></td>
         <td>{{nextDay.text}}</td>

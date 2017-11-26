@@ -8,8 +8,8 @@ appModule.controller('currentWeatherController', function($scope, $location,$htt
 		.then(function(response){
 			// if api is success
 			console.log('api successfully invoked');	
-			//console.log(response);
 			
+			// Current weather results fetched from endpoint
 			$scope.currentWeather = {
 	
 			city:response.data.query.results.channel.location.city,
@@ -22,6 +22,7 @@ appModule.controller('currentWeatherController', function($scope, $location,$htt
 			humidity:response.data.query.results.channel.atmosphere.humidity
 
 		}
+		//Temperature conversion from Fahrenheit to Celsius
 		$scope.celsius = (($scope.currentWeather.tempToday - 32) * 5.0/9.0).toFixed();
 	
 			

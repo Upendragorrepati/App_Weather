@@ -3,6 +3,6 @@
 appModule.controller('mainAppCtrl', function($scope, $location) {
    
         
-    // $scope.burl = $location.protocol() + '://' + $location.host() + ':' + $location.port();
+    // On load of app
     $location.path('/currentWeather');
 });
